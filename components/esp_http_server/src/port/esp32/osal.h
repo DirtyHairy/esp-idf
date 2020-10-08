@@ -34,7 +34,7 @@ static inline int httpd_os_thread_create(othread_t *thread,
                                  const char *name, uint16_t stacksize, int prio,
                                  void (*thread_routine)(void *arg), void *arg)
 {
-    int ret = xTaskCreate(thread_routine, name, stacksize, arg, prio, thread);
+    int ret = xTaskCreatePinnedToCore(thread_routine, name, stacksize, arg, prio, thread, 0);
     if (ret == pdPASS) {
         return OS_SUCCESS;
     }
