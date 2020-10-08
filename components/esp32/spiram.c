@@ -89,6 +89,8 @@ static int spiram_size_usable_for_malloc()
 */
 bool esp_spiram_test()
 {
+    return true;
+
     volatile int *spiram=(volatile int*)SOC_EXTRAM_DATA_LOW;
     size_t p;
     size_t s=spiram_size_usable_for_malloc();
